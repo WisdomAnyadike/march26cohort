@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre> i like to      eat</pre>
+
+</body>
+
+</html>
+<script>
+    // i love javascript.
+    let string1 = `i`
+    let string2 = "love"
+    let string3 = 'java'
+    let string4 = 'script'
+    let string5 = '.'
+    // let space = ' '
+    let finalSentence = string1 + ' ' + string2 + ' ' + string3 + string4 + string5
+    console.log(finalSentence);
+
+    let sentence2 = `${string1} ${string2} ${string3}${string4} ${string5}`
+    console.log(sentence2);
+
+    // the sum of 4 and 20 is 24
+    let phrase1 = 'the sum of'
+    let a = 4
+    let b = 20
+    let phrase2 = 'is'
+
+    let sentence3 = phrase1 + ' ' + a + ' and ' + b + ' ' + phrase2 + ' ' + (a + b)
+    console.log(sentence3);
+
+    let sentence4 = `${phrase1} ${a} and ${b} ${phrase2} ${a + b}`
+    console.log(sentence4);
+
+    let string = 'Java  script'
+    // console.log(string.length);
+    //string property lenght
+    let stringLengthPlus6 = string.length + 6
+    console.log(stringLengthPlus6);
+
+    // string methods
+
+    // let studentObj = {
+    //     name: 'tolu',
+    //     class: 'ss2a',
+    //     talk: function (params) {
+    //         console.log('i am talking');
+
+    //     }
+    // }
+
+    // studentObj.talk()
+
+    let myName = 'korede'
+    let capitalizedName = myName.toUpperCase() //KOREDE
+
+    console.log(myName);
+
+    let lowerCaseName = capitalizedName.toLowerCase()
+
+    //substr method
+
+    let myString = 'java is great'
+    let subString = myString.substr(8, 5)
+    console.log(subString);
+
+    // time is good
+    let mySentence = ' God is good, all the time.  '
+    let timeString = mySentence.substr(21, 4) //time
+
+    //substring
+
+    let newSentence = mySentence.slice(13)
+    let newSentence2 = mySentence.substr(13, 13)
+    console.log(newSentence, newSentence2);
+
+    // split - type casting
+
+    let sentenceArr = mySentence.split('good, ')
+    console.log(sentenceArr);
+
+    // trim
+    let myEmailString = '     anyadikewisdom@gmail.com.       '
+    let trimmedEmailString = myEmailString.trim()
+    console.log(myEmailString);
+    console.log(trimmedEmailString);
+
+    console.log(mySentence);
+    let newVar = mySentence.trim() // 'God is good, all the time.'
+    let onlyTrimTheBeginning = mySentence.trimStart()
+    console.log(newVar);
+    console.log(onlyTrimTheBeginning);
+
+    // includes
+
+    let string6 = '30 Days Of JavaScript is my best JavaScript course'
+    console.log(string6.includes('Of Java'));
+
+    // replace replaceAll
+
+    let newVal = string6.replaceAll('JavaScript', 'Python')
+    console.log(newVal);
+
+    //classwork 
+
+    let ourString = 'I love to  eat jollof rice' // 'I love to eat jollof rice'
+    console.log(ourString[4]);
+
+
+    let formattedString = ourString.replace('  ', ' ')
+    console.log(formattedString);
+
+    // character at method
+    console.log(ourString.charAt(5));
+
+    console.log(ourString[5]);
+
+
+
+    // indexOf LastIndexOf
+    let theString = '30 Days Of JavaScript'
+    console.log(theString.indexOf('Days'))
+    console.log(theString.lastIndexOf('Days'))
+
+
+    // concat 
+
+    let firstString = 'I'
+    let secondString = 'Love'
+    let thirdString = 'Js'
+
+    console.log(firstString.concat(' ', secondString, ' ', thirdString));
+
+    console.log(firstString.concat(' ').concat(secondString).concat(' ').concat(thirdString));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

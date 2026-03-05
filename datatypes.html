@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //strings 
+    // 'hey'
+    //     `23`
+    // "why"
+
+    let string = 'javascript'
+    let text = 'I love'
+    let space = ' '
+    let newWord = string[8] + string[7] + string[9]
+    console.log(newWord);
+console.log(text[2]);
+
+    let sentence = text + space + string
+    console.log(sentence);
+
+
+    // number
+    let num = 25
+    let num2 = 45
+
+    // symbols - / * + ** %
+    let total = num + num2
+    let subtraction = num - num2
+    let division = num / num2
+    let multiplication = num * num2
+    let raisedToPower = num ** num2
+    let modulus = num2 % num
+    console.log(total, subtraction, division, multiplication, raisedToPower, modulus);
+
+    // anomaly 
+    let total1 = 25 + '25'
+    console.log(total1, typeof (total1));
+
+    // booleans
+    let canEat = true
+    let isRaining = false
+
+    // null 
+    let value = null
+    console.log(value);
+    value = 'hello'
+
+    // undefined
+    let val
+    console.log(val);
+    val = 'hello'
+
+    // symbol
+    let one = Symbol('y')
+    let two = Symbol(3)
+    console.log(one === two);
+
+
+    // Objects
+    // let student1 = new Object()
+    let student = {
+        name: 'wisdom',
+        age: 34,
+        course: 'software engineering',
+        maritalStatus: undefined,
+        talk: function (params) {
+            console.log('i am talking');
+        }
+    }
+    // console.log(student1, student2);
+    console.log(student);
+    console.log(student.name, student.course);
+    console.log(student['name'], student['course'])
+
+
+    // arrays 
+    // let newArr1 = new Array()
+    let newArr = [undefined, 'hello', 34, null, { name: 'david' }, Symbol('z'), []]
+    let stringArr = ['hey', 'hi', 'whats up', 'wow']
+
+    console.log(newArr[4]);
+
+    // newArr.length
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
