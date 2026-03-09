@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input" type="text">
+    <button onclick="sensorWords()"> sensor</button>
+    <div id="sensoredText">
+
+
+
+
+    </div>
+    <!-- <button onclick="runFunction()"> say smth </button> -->
+</body>
+
+</html>
+<script>
+    // 'stupid' , 'foolish' , 'idiot' , 'crazy'
+    let input = document.getElementById('input')
+    let div = document.getElementById('sensoredText')
+    input.value
+
+
+
+    function sensorWords(params) {
+        // console.log('hello class');
+        // console.log(input.value);
+        let userText = input.value.toLowerCase()
+        console.log(userText);
+        let censoredValue = userText.replaceAll('stupid', '*******').replaceAll('foolish' , '******')
+
+        div.innerHTML = censoredValue
+
+
+    }
+
+
+
+    // function jump() {
+    //     console.log('hello world');
+
+    // }
+
+    // jump()
+
+
+    // function runFunction(params) {
+    //     console.log('i love javascript');
+
+    // }
+
+
+</script>

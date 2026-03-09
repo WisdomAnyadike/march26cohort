@@ -8,9 +8,16 @@
 </head>
 
 <body>
-    <input id="input1"  type="text">
+    <input id="input1" type="text">
+    <input id="myCheckBox" type="checkbox">
 
-    <button onclick="collectInputValue()"> click </button>
+    <img alt="" id="myImage">
+    <p id="paragraph">
+        hello class
+
+    </p>
+
+    <!-- <button onclick="collectInputValue()"> click </button>
 
     <div id="preview">
 
@@ -23,27 +30,50 @@
 
 
 
-    </p>
+    </p> -->
 
 </body>
 
 </html>
 <script>
+    // let imageAddress = 
 
     let myInput = document.getElementById('input1')
-    let myDiv = document.getElementById('preview')
-    let box = document.getElementById('anotherBox')
-    console.log(myInput, myDiv);
+    let checkBox = document.getElementById('myCheckBox')
+    let image = document.getElementById('myImage')
+    console.log(image);
+    console.log(image.src);
+    image.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgOD3oMqMwdN0zouA-ZdIMOqZuZZnfIkp-oA&s'
+    image.style.width = '100'
+    console.log(image.src);
 
-    // myInput.value = 'sghjxksjkdmn'
+
+
+    myInput.type = 'password'
+    myInput.placeholder = 'enter value here'
+    myInput.style.display = 'none'
+
+    checkBox.checked = true
+
+    let paragraphTag = document.getElementById('paragraph')
+    console.log(paragraphTag.innerHTML);
+
+    paragraphTag.innerHTML = 'im loving js'
+
+
+    // let myDiv = document.getElementById('preview')
+    // let box = document.getElementById('anotherBox')
+    // console.log(myInput, myDiv);
+
+    // // myInput.value = 'sghjxksjkdmn'
 
 
 
-    function collectInputValue(params) {
-        console.log(myInput.value);
-        myDiv.innerHTML = myInput.value
-        // box.innerHTML = myInput.value
-    }
+    // function collectInputValue(params) {
+    //     console.log(myInput.value);
+    //     myDiv.innerHTML = myInput.value
+    //     // box.innerHTML = myInput.value
+    // }
 
 
 
