@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="value1" readonly> <input  readonly  type="text" id="value2">
+    <button onclick="add()"> + </button>
+    <button onclick="subtract()"> - </button>
+    <button onclick="divide()"> / </button>
+    <button onclick="multiply()"> * </button>
+    <button onclick="modulus()"> % </button>
+    <button onclick="raisedToPower()"> ^ </button>
+    <p id="output"> </p>
+
+</body>
+
+</html>
+<script>
+    let inputElement1 = document.getElementById('value1')
+    let inputElement2 = document.getElementById('value2')
+    let outputElement = document.getElementById('output')
+
+    function add(params) {
+        let finalAns = +inputElement1.value + +inputElement2.value
+        outputElement.innerHTML = finalAns
+        console.log(finalAns);
+        inputElement1.value = ""
+        inputElement2.value = ""
+
+    }
+
+    function subtract(params) {
+        let finalAns = +inputElement1.value - +inputElement2.value
+        outputElement.innerHTML = finalAns
+        console.log(finalAns);
+        inputElement1.value = ""
+        inputElement2.value = ""
+    }
+
+    function divide(params) {
+        let finalAns = +inputElement1.value / +inputElement2.value
+        outputElement.innerHTML = finalAns
+        console.log(finalAns);
+        inputElement1.value = ""
+        inputElement2.value = ""
+    }
+
+    function multiply(params) {
+        let finalAns = +inputElement1.value * +inputElement2.value
+        outputElement.innerHTML = finalAns
+        console.log(finalAns);
+        inputElement1.value = ""
+        inputElement2.value = ""
+    }
+
+    function modulus(params) {
+        let finalAns = +inputElement1.value % +inputElement2.value
+        outputElement.innerHTML = finalAns
+        console.log(finalAns);
+        inputElement1.value = ""
+        inputElement2.value = ""
+    }
+
+    function raisedToPower(params) {
+        let finalAns = (+inputElement1.value) ** +inputElement2.value
+        outputElement.innerHTML = finalAns
+        console.log(finalAns);
+        inputElement1.value = ""
+        inputElement2.value = ""
+    }
+
+
+</script>

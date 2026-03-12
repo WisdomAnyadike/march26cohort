@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="length"> <input id="breadth" type="text">
+    <button onclick="calPerimeter()"> calculate</button>
+    <p>
+    <h1 id="displayPerimeter"> </h1>
+    </p>
+
+</body>
+
+</html>
+<script>
+    // let lengthElement = document.getElementById('length')
+
+    let string = ''
+    let number = +string // 45
+    console.log(number);
+
+    function calPerimeter(params) {
+        let length = Number(document.getElementById('length').value) // 0
+        let breadth = Number(document.getElementById('breadth').value) // 0
+        let displayPeri = document.getElementById('displayPerimeter')
+
+        // 2(l + B)
+        let perimeter = 2 * (length + breadth)
+        displayPeri.innerHTML = ` The perimeter of a rectangle with length ${length} and breadth ${breadth} is ${perimeter} `
+
+
+
+
+    }
+
+
+
+
+
+</script>
