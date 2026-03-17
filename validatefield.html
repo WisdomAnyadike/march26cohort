@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <button onclick="validateForm()"> click </button>
+
+</body>
+
+</html>
+<script>
+    let inputElement = document.getElementById('username')
+
+    // function validateForm(params) {
+
+    //     if (inputElement.value.trim() === '') {
+    //         alert('username is mandatory')
+    //     }
+    //     else if (!isNaN(inputElement.value)) {
+    //         alert('we dont accept numbers here')
+    //     }
+
+    //     else if (inputElement.value.length <= 2) {
+    //         alert('username must be 3 characters and more')
+    //     }
+
+    //     else {
+    //         alert('thank you for sending me a value')
+    //     }
+
+    // }
+
+
+    function validateForm() {
+        let inputValue = inputElement.value.trim() //'ha'
+
+        switch (true) {
+            case inputValue === '':
+                alert('username is mandatory')
+                break;
+            case !isNaN(inputElement.value):
+                alert('we dont accept numbers here')
+                break;
+
+            case inputElement.value.length <= 2:
+                alert('username must be 3 characters and more')
+                break;
+            default:
+                alert('thank you for sending me a value')
+                break;
+        }
+
+    }
+
+    // let key = 'TuesDay'
+
+    // switch (key.toLowerCase()) {
+    //     case 'tuesday':
+    //         console.log('today is tuesday');
+    //         break;
+
+    //     case 'monday':
+    //         console.log('today is monday');
+
+    //         break;
+
+    //     default:
+    //         console.log('i do not know what today is');
+    //         break;
+    // }
+
+    let isSqiLightOn = false
+    isSqiLightOn ? console.log('wow') : console.log('not wow');
+
+
+
+
+
+    // alert('hey class')
+
+    typeof 'hello'
+
+    console.log(isNaN('67'));
+
+
+    // console.log(typeof Number('sorry')  === 'number');
+
+
+
+</script>
