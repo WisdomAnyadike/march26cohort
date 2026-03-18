@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="inputgrade">
+    <button onclick="score()"> show grade </button>
+
+</body>
+
+</html>
+<script>
+    let input = document.getElementById("inputgrade")
+
+    function score(params) {
+        let value = input.value.trim()
+
+        if (value === '') {
+            alert('please enter a value ')
+        } else if (isNaN(value)) {
+            alert('pls enter a number')
+
+        }
+        else if (Number(value) < 0 || +value > 100) {
+            alert('invalid range')
+
+        }
+        else if (Number(value) >= 80) {
+            alert('The grade is A')
+        } else if (Number(value) >= 70) {
+            alert('The grade is B')
+        } else if (Number(value) >= 60) {
+            alert('The grade is C')
+        } else if (Number(value) >= 50) {
+            alert('The grade is D')
+        } else {
+            alert('The grade is F')
+        }
+
+    }
+
+    isNaN('7')
+
+
+
+
+</script>
