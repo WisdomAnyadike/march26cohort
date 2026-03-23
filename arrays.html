@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    let fruitsArr = ['apple', 'watermelon', 'orange', 'cherry']
+    let vegesArr = ['brocolli', 'cabbage', 'spinach']
+    let vegesArr2 = ['carrot', 'tomato']
+    let fruitsAndVeges = fruitsArr.concat(vegesArr2, vegesArr)
+    console.log(fruitsAndVeges);
+
+
+    let fruits = new Array(5).fill(25)
+    console.log(fruits);
+    console.log(fruitsArr.length);
+    let addition = fruitsArr.length + 6
+    let singleFruit = fruitsArr[2]
+
+    singleFruit = 'mango'
+    console.log(singleFruit);
+
+    singleFruit[3] = 'y'
+    console.log(singleFruit);
+
+
+    fruitsArr[2] = 56
+
+
+    fruitsArr[0] = 'guava'
+
+
+
+    fruitsArr[4] = 'pawpaw'
+    console.log(fruitsArr);
+
+    let myFruit = 'guava'
+    myFruit.indexOf('a')
+    myFruit.lastIndexOf('a')
+
+    let fruit2 = 'banana'
+    let findIndexofSecondA = fruit2.slice(0, 4) // 'bana'
+    let findIndexofSecondB = fruit2.slice(2, 6) // 'nana'
+    let findIndexofSecondC = fruit2.substr(2, 4) // 'nana'
+
+    findIndexofSecondA.lastIndexOf('a') // 'bana'.indexOf('a') //3
+    console.log(fruit2.indexOf('a', 4));
+
+
+    console.log(fruitsAndVeges.indexOf('tomat'));
+
+    console.log(typeof fruitsAndVeges);
+    console.log(Array.isArray(fruitsAndVeges));
+
+
+    if (Array.isArray(fruitsAndVeges)) {
+        fruitsAndVeges.indexOf('carrot')
+    }
+
+
+    console.log(fruitsAndVeges.toString(' ')); // 'apple,watermelon,orange,cherry,carrot,tomato,brocolli,cabbage,spinach'
+    console.log(fruitsAndVeges.join('+'));
+
+
+    let newArr = fruitsAndVeges.slice(6, 9)
+    console.log(newArr);
+
+    console.log(fruitsAndVeges.splice(3, 1));
+
+    console.log(fruitsAndVeges.splice(5, 2));
+
+    console.log(fruitsAndVeges);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
