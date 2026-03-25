@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="height" placeholder="height in m">
+    <input type="text" id="weight" placeholder="weight in kg">
+    <button onclick="calculateBmi()">calculate bmi </button>
+    <p id="result"> </p>
+
+</body>
+
+</html>
+<script>
+
+    function calculateBmi(params) {
+        let weight = document.getElementById('weight').value.trim() // '564'
+        let height = document.getElementById('height').value.trim() // ''
+        console.log(weight, height);
+
+        if (weight === '' || height === '') {
+            alert("all fields are manadatory")
+        } else if (isNaN(weight) || isNaN(height)) {
+            alert('please enter a numeric value')
+        } else {
+            let bmi = (+weight / (+height * +height)).toFixed()
+
+            if(bmi  < 18.5){ 
+        result.innerHTML =  `your bmi is ${bmi} , you are underweight`
+        }
+        else if (bmi <= 24.9) {
+            result.innerHTML = `your bmi is ${bmi} , you are normal weight`   
+        }else if (bmi <= 29.9){
+            result.innerHTML = `your bmi is ${bmi} , you are over weight`
+        }else 
+         result.innerHTML = `your bmi is ${bmi} , you are obese`
+
+        
+
+            
+
+
+        }
+
+
+
+    }
+
+    // isNaN returing true when that value is not a number
+    isNaN('200')
+
+
+
+</script>
