@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">  <button onclick="addTodo()"> add todo </button>
+
+    <div id="preview">
+
+
+    </div>
+
+    
+
+</body>
+</html>
+<script>
+    let todoDatabase = []
+
+    function addTodo(params)  {
+  let todo = input.value.trim()
+  
+        if ( todo === '') {
+            alert('input field is mandatory')
+        }else if ( !isNaN(todo[0]) ) {
+        alert('please do not start todo with a number')
+        } else {
+input.value = ''
+      todoDatabase.push(todo)
+      console.log(todoDatabase);  
+        //  preview.innerHTML = ` ${todoDatabase.join('<br>')} `
+
+     displayTodos()
+      
+
+        }
+
+
+
+
+
+    }
+
+// join() , toString() - arr to a string
+// [1,2,3].toString() = '1,2,3'
+// [1,2,3].join('<br>') = '1<br>2<br>3'
+
+
+function editTodo(i) {
+    // alert(`you clicked on edit for index ${i}`)
+  let promptValue =  prompt('Enter your edit value' , todoDatabase[i])
+  if (promptValue === null || promptValue.trim() === '') {
+    alert('enter value you want to edit')
+  } else if ( promptValue.trim() ===  todoDatabase[i]){
+     alert('you cant edit with the same value')
+  } else {
+
+    todoDatabase.splice( i , 1 , promptValue.trim())
+    console.log(todoDatabase);
+     displayTodos()
+
+
+  }
+
+
+}
+
+
+function displayTodos(params) {
+       preview.innerHTML = ''
+        for (let index = 0; index < todoDatabase.length ; index++) {
+        
+          preview.innerHTML +=  `<p> ${todoDatabase[index]} <button onclick="editTodo(${index})"> edit </button>  </p>`
+            
+        }
+    
+}
+
+
+
+
+
+function addAnyTwoNumbers( num1 , num2) {
+     console.log(num1 + num2)
+}
+
+addAnyTwoNumbers(4,6)
+addAnyTwoNumbers(24,46)
+
+
+// console.log(prompt('enter name here' ));
+
+// let array = [ '1' , '2' , '3' , 'one' , 'two']
+
+// array.splice(0 , 0 , '1' , '2' , '3')
+
+    
+</script>
