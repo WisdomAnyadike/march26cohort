@@ -39,9 +39,6 @@ input.value = ''
         }
 
 
-
-
-
     }
 
 // join() , toString() - arr to a string
@@ -58,7 +55,8 @@ function editTodo(i) {
      alert('you cant edit with the same value')
   } else {
 
-    todoDatabase.splice( i , 1 , promptValue.trim())
+    // todoDatabase.splice( i , 1 , promptValue.trim())
+    todoDatabase[i] = promptValue.trim()
     console.log(todoDatabase);
      displayTodos()
 
@@ -73,10 +71,24 @@ function displayTodos(params) {
        preview.innerHTML = ''
         for (let index = 0; index < todoDatabase.length ; index++) {
         
-          preview.innerHTML +=  `<p> ${todoDatabase[index]} <button onclick="editTodo(${index})"> edit </button>  </p>`
+          preview.innerHTML +=  `<p> ${todoDatabase[index]} <button onclick="editTodo(${index})"> edit </button>  <button onclick="deleteTodo(${index})"> delete </button>  </p>`
             
         }
     
+}
+
+
+function deleteTodo(i) {
+  // alert(`you clicked on delete for the todo on index ${i}`)
+let canDelete = confirm('are you sure?')
+if (canDelete) {
+   todoDatabase.splice(i , 1)
+  console.log(todoDatabase);
+  displayTodos()
+}
+ 
+  
+  
 }
 
 
@@ -93,9 +105,39 @@ addAnyTwoNumbers(24,46)
 
 // console.log(prompt('enter name here' ));
 
-// let array = [ '1' , '2' , '3' , 'one' , 'two']
+let array = [ '1' , '2' , '3' , 'one' , 'two']
+array[3] = 'hey'
+console.log(array);
+
 
 // array.splice(0 , 0 , '1' , '2' , '3')
+
+
+window.alert('hey class')
+prompt('enter your username')
+confirm('are you sure?')
+
+
+
+
+function multiplyBy5(params) {
+
+   let num = params * 5
+   return num
+   
+}
+
+console.log(multiplyBy5(2));
+
+
+let total =  multiplyBy5(5) +  multiplyBy5(20)
+console.log(total);
+
+
+
+
+
+
 
     
 </script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="celcius"> <button onclick="convert()"> convert to farenheit</button>
+    <div id="display"></div>
+</body>
+</html>
+<script>
+    // f = c (9/5) + 32
+
+
+function convert() {
+    if(celcius.value === ''){
+        alert('input is mandatory')
+        return
+    } 
+    
+    
+    if (isNaN(celcius.value)){
+        alert('please input celcuis as a numerical value')
+        // return
+    }
+
+
+    display.innerHTML = calculateFarenheit(+celcius.value)
+    
+
+}
+
+
+function calculateFarenheit(params) {
+   let farenheit = (params * (9/5)) + 32
+   return isNaN(farenheit) ? 'you didnt send a number' : farenheit
+}
+
+
+console.log(calculateFarenheit(500));
+
+
+
+let arr = [1,2,3]
+
+let arr2 = [1,2,3]
+
+</script>
