@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    // forEach map find findIndex filter some every reduce 
+
+    let fruits = [ 'apple' ,5 , true,  'mango' , false , 1 , 'cherry' ,5, 'pineapple' , 'watermelon']
+
+// forEach
+   let result =  fruits.forEach(function (i , t , arr) {
+        console.log(t );
+    })
+    
+
+    console.log(result);
+
+// Map
+
+let returnedArr = fruits.map( function ( fruit , index , arr) {
+    console.log(fruit , index , arr);
+  return fruit + index
+})
+
+console.log(returnedArr);
+
+//find
+
+let foundFruit = fruits.find((fruit , index , arr)=> {
+console.log(fruit , index , arr);
+
+// return  typeof fruit ==="number"
+return fruit === 5 && index === 5
+// return index === 2
+
+})
+
+console.log(foundFruit);
+
+//find index
+let foundFruitIndex = fruits.findIndex((fruit , index , arr)=> {
+   return fruit === 'mangoo'
+})
+
+console.log(foundFruitIndex);
+
+//filter
+
+let filteredArr = fruits.filter((fruit , index , arr)=> {
+return  typeof fruit === "boolean"
+})
+    
+console.log(filteredArr);
+
+
+
+
+
+
+    //function declaration
+   function hello(params) {
+        
+    }
+
+
+//function expression
+   let run =  function (params) {
+        
+    }
+
+// IIFE
+    (function (params) {
+        console.log('heyy');
+        
+    }())
+
+
+    //  arrow function
+let callStudent = ()=> {
+
+}
+
+   
+
+function eat(params) {
+     let vale = 5 + 89
+     return vale
+}
+
+
+console.log(eat());
+
+
+
+</script>
