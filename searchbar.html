@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="input" oninput="search()">
+     <!-- <button onclick="search()"> search </button> -->
+
+    <div id="preview">
+
+    </div>
+    
+</body>
+</html>
+<script>
+    let products = [ 'rice' , 'nike' , 'fridge' , 'watermelon']
+
+
+function search() {
+    let inputValue = document.getElementById('input').value.trim().toLowerCase()
+
+    let filteredProducts  = products.filter((product)=> {
+      return product.startsWith(inputValue) || product.includes(inputValue) 
+    })
+
+
+    if (filteredProducts.length === 0) {
+       preview.innerHTML = 'product does not exist' 
+    } else {
+
+    preview.innerHTML = ''
+    filteredProducts.forEach((product)=> {
+     preview.innerHTML +=  `<p> ${product} </p>`
+    })
+
+
+    }
+
+
+    
+}
+
+
+function display(params) {
+    products.forEach((product)=> {
+     preview.innerHTML +=  `<p> ${product} </p>`
+    })
+    
+}
+
+
+display()
+
+
+</script>
