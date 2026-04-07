@@ -14,10 +14,11 @@
     // forEach map find findIndex filter some every reduce 
 
     let fruits = [ 'apple' ,5 , true,  'mango' , false , 1 , 'cherry' ,5, 'pineapple' , 'watermelon']
-
+let newArr = [1,2 ,3,4]
 // forEach
    let result =  fruits.forEach(function (i , t , arr) {
         console.log(t );
+    
     })
     
 
@@ -60,6 +61,42 @@ return  typeof fruit === "boolean"
     
 console.log(filteredArr);
 
+// some 
+
+let arrhasAtLeastOneString = fruits.some(( val , i , arr)=> { 
+
+console.log('js 000');
+
+    return typeof val === "string"
+
+})
+
+console.log(arrhasAtLeastOneString);
+
+// every
+
+let isEveryMemeberOfTheArrAString = fruits.every(( val , i , arr)=> {
+    console.log('hi');
+    
+ return typeof val === "string"
+})
+
+// reduce 
+let total = 0
+newArr.forEach((num , i , arr)=> {
+    total = total + num
+    
+})
+
+console.log(total);
+// [1,2,3,4]
+let sentence = ['i' , 'am' , 'a' , 'boy']
+let myTotal = sentence.reduce(( a , b , i , arr )=> {return a + b  } , 'i am a boy ')
+
+
+console.log(myTotal);
+
+
 
 
 
@@ -97,6 +134,21 @@ function eat(params) {
 
 
 console.log(eat());
+
+
+
+// [undefined , undefined , undefined , undefined]
+let createdArr = newArr.map((num , i , hel) => {
+    console.log(hel);
+    return 'hey'
+})
+
+console.log(createdArr);
+
+let foundNum = newArr.find((num , i , arr)=> {
+   return i > 2
+})
+
 
 
 
