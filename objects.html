@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    let studentObj = {
+        name: 'daniel',
+        course : 'software engineering',
+        age:34 ,
+        talk :  function (params) {
+             return 'i love software engineering , especially the language JS'
+        }
+    }
+
+    studentObj.gender = 'male'
+    studentObj.age = 35
+
+
+    console.log(studentObj);
+    
+
+    console.log(studentObj.talk());
+    
+
+
+
+
+    studentObj.name
+    studentObj['name']
+    console.log( studentObj['talk']());
+    
+   
+    // console.log(studentObj.talk());
+    
+
+
+
+    // document.getElementById()
+    // Math.floor()
+
+    studentObj.talk();
+    
+    
+    (function run(params) {
+        console.log('i am running');
+        
+    }())
+
+
+    let fruits = ['pineapple' , 'watermelon']
+    for (const fruit of fruits) {
+
+        console.log(fruit);
+        
+    }
+   
+
+    for (const vals in studentObj) {
+    
+      console.log( vals ,  studentObj[vals]   );
+      
+        
+        
+    }
+
+
+
+let userswith50 = []
+
+
+const users = {
+  Alex: {
+    email: 'alex@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    age: 20,
+    isLoggedIn: false,
+    points: 30
+  },
+  Asab: {
+    email: 'asab@asab.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 25,
+    isLoggedIn: false,
+    points: 50
+  },
+  Brook: {
+    email: 'daniel@daniel.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+    age: 30,
+    isLoggedIn: true,
+    points: 50
+  },
+  Daniel: {
+    email: 'daniel@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  John: {
+    email: 'john@john.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+    age: 20,
+    isLoggedIn: true,
+    points: 50
+  },
+  Thomas: {
+    email: 'thomas@thomas.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  Paul: {
+    email: 'paul@paul.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  }
+}
+
+
+for (const key in users) {
+
+    console.log(key , users[key] );
+
+    if (users[key].points >= 50) {
+        userswith50.push(key)
+    }
+
+   
+        
+
+    
+    
+}
+
+
+console.log(userswith50 , userswith50.length);
+
+
+
+
+let copyOfStudentObj = Object.assign({} , studentObj)
+copyOfStudentObj.name = 'wisdom'
+console.log(copyOfStudentObj);
+
+
+let allKeysInStudentObj = Object.keys(studentObj)
+console.log(allKeysInStudentObj);
+
+let allvaluesInStudentObj = Object.values(studentObj)
+console.log(allvaluesInStudentObj);
+
+let allvaluesandKeysInStudentObj = Object.entries(studentObj)
+console.log(allvaluesandKeysInStudentObj);
+
+
+console.log(studentObj.hasOwnProperty('talk'));
+
+
+  
+</script>
