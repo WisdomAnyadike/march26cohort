@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+        td,th,thead,tbody,th,tr {
+            border-collapse: collapse;
+            border: 1px solid black;
+            padding: 10px;
+
+        }
+    </style>
 </head>
 <body>
 
@@ -34,21 +43,86 @@
 
     <p> balance :<span id="forBalance"></span></p>
 
+    <table>
+       <thead>
+        <th> s/n</th>
+         <th> pin </th>
+          <th> amount </th>
+           <th> provider</th>
+           <th> recharged </th>
+
+       </thead>
+       <tbody id="tbody">
+ 
+
+       </tbody>
+
+    </table>
+
     
 </body>
 </html>
 <script>
-
-    let provider = document.getElementById('PROVIDER')
+let cards = JSON.parse(localStorage.getItem('cardDatabase')) || []
+let provider = document.getElementById('PROVIDER')
  let amount = document.getElementById('AMOUNT')
     
     
 
-    function generate(params) {
+    function generate() {
+        if (!PROVIDER.value || !AMOUNT.value) {
+             alert('all fields are mandatory')
+        } else {
+            let pin = ''
+           for (let index = 0; index < 12; index++) {
+             let randomNum = Math.floor(Math.random() * 10)
+             pin = pin + randomNum
+           }
+
+        forPin.innerHTML = pin
+
+        let cardObj = {
+            provider :  PROVIDER.value  , 
+            amount : AMOUNT.value , 
+            pin : pin  ,
+            isUsed : false
+        }
+
+        cards.push(cardObj)
+        localStorage.setItem('cardDatabase' , JSON.stringify(cards))
+        console.log(cards);
+        displayCards()
+        
+
+        }
      
     }
 
+    
+
+     function displayCards(params) {
+          tbody.innerHTML = ''
+        cards.forEach((card , index )=> {
+          tbody.innerHTML +=  `<tr>
+                  <td> ${index + 1} </td>
+                    <td> ${card.pin} </td>
+                          <td> ${card.amount} </td>
+                          <td> ${card.provider} </td>
+                           <td> ${card.isUsed ? 'Yes' : 'No'} </td>
+      </tr>`  
+
+        })
+
+     }
 
 
+     displayCards()
+
+// all numbers positive or negative are truthy except 0
+
+    if (null) {
+        console.log('hey class');
+        
+    }
 
 </script>
