@@ -38,7 +38,7 @@
 
     <p>pin: <span id="forPin"> </span></p>
 
-    <input value="*311*#" type="text"> <button> load </button>
+    <input value="*311*#" type="text" id="inputCard"> <button onclick="loadCard()"> load </button>
 
 
     <p> balance :<span id="forBalance"></span></p>
@@ -66,8 +66,13 @@
 let cards = JSON.parse(localStorage.getItem('cardDatabase')) || []
 let provider = document.getElementById('PROVIDER')
  let amount = document.getElementById('AMOUNT')
+ let balance =  +(localStorage.getItem('mybalance')) || 0
     
-    
+
+function displayBal() {
+     forBalance.innerHTML = balance
+}
+    displayBal()
 
     function generate() {
         if (!PROVIDER.value || !AMOUNT.value) {
@@ -102,7 +107,7 @@ let provider = document.getElementById('PROVIDER')
 
      function displayCards(params) {
           tbody.innerHTML = ''
-        cards.forEach((card , index )=> {
+        cards.reverse().forEach((card , index )=> {
           tbody.innerHTML +=  `<tr>
                   <td> ${index + 1} </td>
                     <td> ${card.pin} </td>
@@ -120,9 +125,41 @@ let provider = document.getElementById('PROVIDER')
 
 // all numbers positive or negative are truthy except 0
 
-    if (null) {
-        console.log('hey class');
+    // if (null) {
+    //     console.log('hey class');
         
+    // }
+
+
+    function loadCard(params) {
+        let supposedPin = inputCard.value.slice(5, 17)
+        let foundCard = cards.find(( card , i , arr)=> { return card.pin === supposedPin })
+
+
+        if (inputCard.value.trim() === '') {
+            alert('please input card details')
+        } else if (!inputCard.value.startsWith("*311*") || !inputCard.value.endsWith("#") || inputCard.value.length !== 18 || isNaN(supposedPin)) {
+
+            alert('Invalid Format')
+        }else if ( !foundCard){
+         alert('Invalid Card')
+        } else if ( foundCard.isUsed === true ) {
+             alert('this card has already been used ')
+        } else {
+            balance += +foundCard.amount
+            localStorage.setItem('mybalance' , balance)
+           displayBal()
+            alert(`you have successfully recharged ${foundCard.provider} of ${foundCard.amount}`)
+            foundCard.isUsed = true
+               localStorage.setItem('cardDatabase' , JSON.stringify(cards))
+               displayCards()
+
+        }
+      
     }
+
+    // isNaN('456')
+
+    // typeof('456')
 
 </script>
