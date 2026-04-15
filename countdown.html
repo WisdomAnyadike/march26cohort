@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" id="input">
+    <button onclick="startCountDown(event)"> countdown</button>
+    
+</body>
+</html>
+<script>
+
+    function startCountDown(e) {
+      
+        let input = document.getElementById('input')
+
+        if (input.value <= 0) {
+            alert('value must be one or greather')
+        }else {
+      e.target.disabled = true
+       let decreaseNum =  setInterval(() => {
+                if (input.value == 0) {
+                    alert('time up')
+                      e.target.disabled = false
+                clearInterval(decreaseNum)
+                }else {
+                    
+            input.value = input.value - 1
+
+                }
+
+
+               
+            }, 1000);
+
+
+
+
+        }
+        
+    }
+
+
+
+</script>

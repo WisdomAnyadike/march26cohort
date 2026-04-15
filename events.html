@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mydiv{
+            position: fixed;
+            width: 100vw ;
+            height: 100vh;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="mydiv">
+
+    </div>
+
+    <button onclick="changeBackgroundColor(event)" class="mybutton" id="button"> click </button>
+<p onclick="writeSomething(event , 'i clicked here')"> click </p>
+<p onclick="writeSomething(event , 'i have clicked here')" > click </p>
+<p onclick="writeSomething(event , 'i touched here')"> click </p>
+
+<button onclick="doSmth(event)" > say hey </button>
+</body>
+</html>
+<script>
+
+
+//     function run(e) {   
+//         console.log(e.target);
+//         // e.target.innerHTML = 'I JUST CLICKED HERE'
+        
+//     }
+   
+
+// jump('david')
+// jump('daniel')
+
+// function jump(params) {
+//     console.log(`${params} jumped`);
+    
+// }
+
+function changeBackgroundColor(e) {
+console.log(e);
+e.target.style.backgroundColor = 'blue'
+e.target.parentElement.style.backgroundColor = 'green'
+e.target.nextElementSibling.innerHTML = 'hey , i changed something'
+    // button.style.backgroundColor = 'red'
+    // e.target.style.backgroundColor = 'red'
+    // e.target.innerHTML = 'click me'
+    // document.body.style.backgroundColor = 'yellow'
+    
+}
+
+
+function writeSomething(e , text) {
+    e.target.innerHTML = text
+    
+}
+
+
+// setInterval setTimeout
+
+setTimeout(()=>  {
+    document.body.style.backgroundColor = 'red'
+ } , 60000)
+
+
+function doSmth(e) {
+    // mydiv.style.display = 'flex'
+    // mydiv.style.backgroundColor = 'blue'
+    // mydiv.style.color = 'white'
+    // mydiv.innerHTML = 'loading...'
+
+         e.target.innerHTML = 'loading...'
+         e.target.disabled = true
+
+  setTimeout(() => {
+      alert('hey class')
+       e.target.disabled = false
+      e.target.innerHTML = 'say hey'
+  }, 3000);
+
+    
+}
+
+
+
+setInterval( ()=> genRgb(), 1000)
+
+function genRgb() {
+
+   function r(params) {
+     return  Math.floor(Math.random() * 256)
+   }
+
+   document.body.style.backgroundColor = `rgb(${r()},${r()},${r()})`
+
+    
+}
+
+
+
+
+
+</script>
