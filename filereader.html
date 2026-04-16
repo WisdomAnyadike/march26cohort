@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p class="p"> hello </p>
+    <button id="button"  > click</button>
+
+    <p class="p"> hi </p>
+
+
+    <input id="input" type="file" onchange="pickPicture()">
+    <img id="image" width="100px" height="100px" src="" alt="">
+</body>
+</html>
+<script>
+
+    document.querySelectorAll('.p')[1].style.color = 'red'
+    
+function pickPicture(params) {
+    let input = document.getElementById('input')
+  let file = input.files[0]  
+   console.log(file);
+   
+    if (file.size / 1000 > 700) {
+        alert('file too large , need 50kb or less')
+    }else {
+
+        // if(!file){
+        //     alert('please attach an image')
+        // }
+
+        let reader = new FileReader()
+
+        reader.readAsDataURL(file)
+
+     reader.addEventListener( 'load' , (ev)=> {
+        console.log(ev.target.result);
+        image.src = ev.target.result
+
+     } )
+    } 
+}
+
+
+
+
+
+button.addEventListener('click' , (e)=> {
+
+      e.target.innerHTML = 'clicked'
+
+    alert(`${sayhey()}, ive been clicked`)
+
+    function sayhey() {
+        return 'hey'
+    }
+
+
+
+
+})
+
+// function run(e) {
+//     e.target.innerHTML = 'clicked'
+//     alert('ohh, ive been clicked')
+// }
+
+
+</script>
