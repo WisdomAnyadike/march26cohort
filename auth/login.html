@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+<div class="form-wrapper">
+        <div class="login-form">
+            <span class="bar"></span>
+            <p class="login-tittle">LOGIN</p>
+            <form autocomplete="off" action="#">
+                <input class="form-input" type="text" name="userName" id="userEmail" placeholder="email address" required>
+                <i class="fas fa-user-alt"></i>
+
+                <input class="form-input" type="password" name="userPassword" id="password" placeholder="Password" required>
+                <i class="fas fa-lock"></i>
+
+                <button class="login-btn" onclick="loginUser()">LOGIN</button>
+            </form>
+            <a class="forget-link" href="#">Forget Password?</a>
+        </div>
+       
+         <i id="close-icon" class="fas fa-times" onclick="openLoginForm()"></i>
+    </div>
+    
+</body>
+</html>
+<script src="./js/login.js"></script>
+<script>
+
+let database = JSON.parse(localStorage.getItem('userDatabase'))
+
+function loginUser(params) {
+    let email = document.getElementById('userEmail').value.trim()
+    let password = document.getElementById('userPassword').value.trim()
+    let foundUser = database.find(function (user , index , arr ) { return user.email === email})
+
+    if (foundUser) {
+        if (foundUser.password !==password) {
+            alert( 'incorect password')
+        }else{ 
+            alert( 'login successful')
+        }
+
+        
+    } else {
+        alert('user does not exit')
+    }
+} if (condition) {
+    
+}
+
+
+
+
+
+</script>

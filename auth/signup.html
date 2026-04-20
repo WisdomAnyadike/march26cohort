@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+<div class="form-wrapper">
+       
+        <div id="signup-wrapper" class="signup-form-wrapper" >
+                <i id="signup-icon" class="fas fa-pencil-alt"></i>
+            <div id="signup-form" class="signup-form">
+                <span class="bar-signup"></span>
+                <p class="signup-tittle">REGISTER</p>
+                <form autocomplete="off" action="#">
+                    <input class="form-input" type="text" name="userName" id="username" placeholder="Enter User Name" required>
+<i class="fas fa-user-alt"></i>
+                    <input class="form-input" type="text" name="userEmail" id="useremail" placeholder="Enter User Email" required>
+                    <i class="fas fa-user-alt"></i>
+                    
+                    <input class="form-input" type="password" name="userPassword" id="password" placeholder="Enter Password" required>
+                    <i class="fas fa-key"></i>
+
+                    <input class="form-input" type="password" name="userPassword" id="password" placeholder="Confirm Password" required>
+                    <i class="fas fa-lock"></i>
+
+                    <p style="color: white;">
+                        <input id="foragreement" type="checkbox"> agree to terms and conditions
+                    </p>
+
+
+                    <button class="signup-btn" onclick="signUpUser()">SIGN UP</button>
+                </form>
+            </div>
+        </div>
+      
+    </div>
+    
+</body>
+</html>
+<script src="./js/login.js"></script>
+<script>
+
+openSignupForm()
+
+let database = JSON.parse(localStorage.getItem('userDatabase')) || []
+
+function signUpUser(params) {
+    
+
+    let inputCheckbox = document.getElementById('foragreement')
+  let username = document.getElementById('username').value.trim()
+  let useremail = document.getElementById('useremail').value.trim()
+  let passwordsElement = document.getElementsByName('userPassword')
+
+
+if (!username || !useremail || !passwordsElement[0].value.trim() || !passwordsElement[1].value.trim() || !inputCheckbox.checked) {
+    alert('all fields are mandatory')
+    
+  } else if( database.find((user , index , arr )=> { return user.email === useremail})) {
+    alert('user already exists')
+  } else if ( passwordsElement[0].value.trim() !== passwordsElement[1].value.trim() ){
+    alert('passwords do not match')
+  } else if ( passwordsElement[0].value.trim().length < 8) {
+      alert('password must be at least 8 characters')
+
+  }else {
+
+    let buttonTag = document.querySelector('.signup-btn')
+    buttonTag.innerHTML = 'loading..'
+    buttonTag.disabled = true
+
+
+   setTimeout(()=> {
+     let user = {
+        username : username, 
+        email : useremail , 
+        password : passwordsElement[1].value.trim() 
+    }
+
+    database.push(user)
+    localStorage.setItem('userDatabase' , JSON.stringify(database))
+    alert('sign up successful')
+    location.href = 'login.html'
+buttonTag.innerHTML = 'SIGN UP'
+ buttonTag.disabled = false
+
+   } , 3000)
+  }
+
+
+
+
+
+
+    
+}
+
+
+
+
+
+
+
+</script>
