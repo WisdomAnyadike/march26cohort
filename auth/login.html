@@ -13,14 +13,14 @@
         <div class="login-form">
             <span class="bar"></span>
             <p class="login-tittle">LOGIN</p>
-            <form autocomplete="off" action="#">
+            <form>
                 <input class="form-input" type="text" name="userName" id="userEmail" placeholder="email address" required>
                 <i class="fas fa-user-alt"></i>
 
                 <input class="form-input" type="password" name="userPassword" id="password" placeholder="Password" required>
                 <i class="fas fa-lock"></i>
 
-                <button class="login-btn" onclick="loginUser()">LOGIN</button>
+                <button class="login-btn" type="button" onclick="loginUser()">LOGIN</button>
             </form>
             <a class="forget-link" href="#">Forget Password?</a>
         </div>
@@ -37,23 +37,23 @@ let database = JSON.parse(localStorage.getItem('userDatabase'))
 
 function loginUser(params) {
     let email = document.getElementById('userEmail').value.trim()
-    let password = document.getElementById('userPassword').value.trim()
-    let foundUser = database.find(function (user , index , arr ) { return user.email === email})
+    let password = document.getElementById('password').value.trim()
+    let foundUser = database.find(function (user , index , arr ) { return user.email === email}) 
+   let foundUserIndex =  database.findIndex(function (user , index , arr ) { return user.email === email})// {name:'wisdom' , email:'anya@gmail.com' , password:'wisdom123'} // undefined
 
     if (foundUser) {
         if (foundUser.password !==password) {
             alert( 'incorect password')
         }else{ 
             alert( 'login successful')
+            localStorage.setItem('currentUserIndex' , foundUserIndex)
+            window.location.href = 'dashboard.html'
         }
-
         
     } else {
         alert('user does not exit')
     }
-} if (condition) {
-    
-}
+} 
 
 
 
