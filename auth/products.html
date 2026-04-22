@@ -14,9 +14,10 @@
   
 </body>
 </html>
+<script src="./js/forproducts.js"></script>
 <script>
 
-    let database =  JSON.parse(localStorage.getItem('userDatabase')) // [{} , {} , {}]
+let database =  JSON.parse(localStorage.getItem('userDatabase')) // [{} , {} , {}]
 let index = localStorage.getItem('currentUserIndex') // 1
 let currentUser = database[index]
 
@@ -46,13 +47,16 @@ document.body.innerHTML += `  <div class="product-card">
     <img src="https://fadzrinmadu.github.io/hosted-assets/animated-product-card-using-html-css-and-javascript/logo.jpg" alt="logo">
     <i class='bx bx-shopping-bag'></i>
   </div>
-  <div class="main-images" style="height:270px;">
+  <div class="main-images">
+ <!-- ${product.images.map((src , i)=> { return `<img id="blue" class="blue active" src="${src}" alt="blue">` }).join('')}  -->
     <img id="blue" class="blue active" src="${product.images[0]}" alt="blue">
-  
+
   </div>
+  <br>
+    <br>
   <div class="shoe-details">
-    <span class="shoe_name">${product.title}</span>
-    <p>${product.description}</p>
+     <span class="shoe_name">${product.title}</span>
+    <p>Lorem ipsum dolor sit lorenm i amet, consectetur adipisicing elit. Eum, ea, ducimus!</p>
     <div class="stars">
       <i class='bx bxs-star' ></i>
       <i class='bx bxs-star' ></i>
@@ -71,13 +75,13 @@ document.body.innerHTML += `  <div class="product-card">
       </div>
     </div>
     <div class="price">
-      <span class="price_num">$${product.price}</span>
+      <span class="price_num">$09.00</span>
       <span class="price_letter">Nine dollar only</span>
     </div>
   </div>
   <div class="button">
     <div class="button-layer"></div>
-    <button>Add To Cart</button>
+    <button> see more </button>
   </div>
 </div>`
         
@@ -99,6 +103,30 @@ document.body.innerHTML += `  <div class="product-card">
 
 
 
+  // fetch('https://dummyjson.com/products').then((res)=> { return res.json() } ).then((data)=> {
+  //   console.log(data);
+  // })
 
+
+  async function fetchProducts(params) {
+
+    let response = await fetch('https://dummyjson.com/products')
+    let data = await response.json()
+    console.log(data);
+
+  }
+
+
+  fetchProducts()
+
+
+  let obj = {
+    products: 'hello',
+    title:'class'
+  } 
+
+  
+ 
+console.log();
 
 </script>
