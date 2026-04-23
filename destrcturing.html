@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    let stacks = ['javascript' , 'python' , 'java']
+    let  [ forjs , forpy , forjv] = stacks
+
+    // let forjs = 'javascript'
+    // let forpy = 'python'
+    // let forjv = 'java'
+
+
+    console.log(forjs);
+
+    forjs = 'david'
+    console.log(stacks);
+
+    stacks[2] = 'david'
+
+
+
+const fullStack = [ ['HTML', 'CSS', 'JS', 'React'],['Node', 'Express', 'MongoDB']]
+    
+let [  client , server ] = fullStack
+let [ lan1 , lan2] = client
+
+ 
+// let [language1 , language2 , language3 , language4 ] = client
+
+// let [backend1 , backend2 , backend3] = server
+
+// console.log(language4 , client , server , backend2);
+
+
+let fruits = ['strawberry' , 'pineapple']
+// let firstFruit = 'strawberry'
+// let secondFruit = 'pineapple'
+let [ firstFruit , secondFruit ] = fruits
+firstFruit = 'apple'
+
+const names = [undefined, 'Brook', 'David']
+
+let [ name1 = 'daniel' , name2 , name3 = 'wow' , name4 = 'tola'] = names
+
+console.log(name1 , name2 , name3 , name4);
+
+
+
+
+
+
+
+
+
+function add2Numbers( num1 = 20 , num2 = 5) {
+     return num1 + num2
+}
+
+let total = add2Numbers(7) + 2
+
+
+
+let numbers =  [1,2,3,4,5]
+let numbersCopy = [...numbers]
+
+
+let rndNums = [232,456,7854,3,2,4,7,0,9,5]
+rndNums.sort((a , b)=> a - b )
+
+console.log(rndNums[0] , rndNums[rndNums.length - 1]);
+
+// console.log(Math.max(...rndNums));
+// console.log(Math.min(...rndNums));
+
+
+
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let [num1, num2, num3, ...others] = nums
+
+
+
+console.log(num1, num2, num3)
+console.log(others)
+
+let [four , five , six , seven , eight , nine ,ten ] = others
+// others[5]
+
+
+
+const countries = [['Finland', 'Helsinki'],
+ ['Sweden', 'Stockholm'],
+  ['Norway', 'Oslo']]
+
+for (const [c, capital] of countries) {
+  console.log( capital );
+  
+    
+}
+
+
+
+
+let obj = {
+    name:'david',
+    level: 'ss2',
+    age: 23
+}
+
+let { level: lev  , name: alias , age : a , sex : s = 'male'} = obj
+
+console.log(lev , s , a , alias);
+
+
+
+let rectangle1 = {
+    length: 30,
+    breadth : 100
+}
+
+
+let rectangle2 = {
+    length: 50,
+    breadth : 200
+}
+
+function calculatePerimeter( {length , breadth}) {
+    return 2 * (length + breadth)
+    
+}
+
+console.log(calculatePerimeter(rectangle1));
+
+console.log(calculatePerimeter(rectangle2));
+
+
+
+</script>
