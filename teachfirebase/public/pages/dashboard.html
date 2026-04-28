@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — ChatFlow</title>
+    <link rel="stylesheet" href="../css/style.css">
+        <script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-auth-compat.js"></script>
+  </head>
+  <body>
+    <!-- Top navigation bar (dashboard style) -->
+    <nav class="navbar dashboard-nav">
+      <div class="nav-container">
+        <a href="./index.html" class="brand">ChatFlow</a>
+        <div class="nav-links">
+          <span class="welcome-tag"> loading...</span>
+          <button type="button" class="nav-link" onclick="signUserOut()">Sign out</button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="dashboard-main">
+      <div class="dashboard-container">
+        <!-- Welcome message -->
+        <div class="welcome-section">
+          <h1 class="welcome-heading"> loading... </h1>
+          <p class="welcome-sub">
+            You have 3 unread messages — stay connected.
+          </p>
+        </div>
+
+        <!-- Placeholder sections: Your Chats & Recent Messages -->
+        <div class="dashboard-grid">
+          <div class="card placeholder-card">
+            <h2 class="card-title">💬 Your Chats</h2>
+            <ul class="chat-list">
+              <li class="chat-item">
+                <div class="chat-avatar">S</div>
+                <div class="chat-info">
+                  <span class="chat-name">Samuel</span>
+                  <span class="chat-preview">Firebase!</span>
+                </div>
+              </li>
+              <li class="chat-item">
+                <div class="chat-avatar">D</div>
+                <div class="chat-info">
+                  <span class="chat-name">Danny</span>
+                  <span class="chat-preview">Man U</span>
+                </div>
+              </li>
+              <li class="chat-item">
+                <div class="chat-avatar">H</div>
+                <div class="chat-info">
+                  <span class="chat-name">Hamid</span>
+                  <span class="chat-preview">Crypto Way</span>
+                </div>
+              </li>
+            </ul>
+            <div class="card-footer-placeholder">✨ 3 active conversations</div>
+          </div>
+
+          <div class="card placeholder-card">
+            <h2 class="card-title">📨 Recent Messages</h2>
+            <div class="message-feed">
+              <div class="message-entry">
+                <p class="message-sender">Team Sync · 2h ago</p>
+                <p class="message-text">
+                  "Don't forget the sprint review at 3pm"
+                </p>
+              </div>
+              <div class="message-entry">
+                <p class="message-sender">Design channel · yesterday</p>
+                <p class="message-text">
+                  "New UI components are ready for testing"
+                </p>
+              </div>
+              <div class="message-entry">
+                <p class="message-sender">Kolade → Samuel</p>
+                <p class="message-text">"Sounds great, see you at 2!"</p>
+              </div>
+            </div>
+            <div class="card-footer-placeholder">📎 latest activity</div>
+          </div>
+        </div>
+
+        <!-- extra static placeholder to fill dashboard -->
+        <div class="status-note">
+          <p>
+            ⚡ Your chats are end-to-end encrypted ·
+            <a href="./index.html" class="text-link">Back to homepage</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer dashboard-footer">
+      <div class="footer-container">
+        <p class="copyright">© 2025 ChatFlow — stay in the loop.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+<script src="../js/dashboard.js"></script>

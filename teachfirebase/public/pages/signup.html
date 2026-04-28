@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join ChatFlow — Sign Up</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-auth-compat.js"></script>
+  </head>
+
+  <body class="auth-page">
+    <!-- simple navigation (minimal for auth pages) -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="./index.html" class="brand">ChatFlow</a>
+        <div class="nav-links">
+          <a href="../pages/login.html" class="nav-link">Login</a>
+          <a href="../pages/signup.html" class="nav-link btn-outline-small"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main class="auth-main">
+      <div class="auth-card">
+        <h1 class="auth-title">Create account</h1>
+        <p class="auth-sub">Start chatting in seconds — no hidden fees.</p>
+
+        <form class="auth-form" action="#" method="get">
+          <div class="form-group">
+            <label for="fullname">Full name</label>
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="Alex Johnson"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="hello@chatflow.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a strong password"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="confirm">Confirm password</label>
+            <input
+              type="password"
+              id="confirm"
+              name="confirm"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block" onclick="signUpUser(event)">
+            Sign Up →
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>
+            Already have an account?
+            <a href="./pages/login.html" class="auth-link">Login</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="copyright">© 2025 ChatFlow — connect freely.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+<script src="../js/signup.js"></script>

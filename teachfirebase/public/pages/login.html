@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in — ChatFlow</title>
+    <link rel="stylesheet" href="../css/style.css">
+        <script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-auth-compat.js"></script>
+  </head>
+  <body class="auth-page">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="brand">ChatFlow</a>
+        <div class="nav-links">
+          <a href="../pages/login.html" class="nav-link">Login</a>
+          <a href="../pages/signup.html" class="nav-link btn-outline-small"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main class="auth-main">
+      <div class="auth-card">
+        <h1 class="auth-title">Welcome back</h1>
+        <p class="auth-sub">Log in to continue your conversations</p>
+
+        <!-- login button is wrapped in anchor linking to dashboard.html (no JS validation required) -->
+        <form class="auth-form" action="#" method="get">
+          <div class="form-group">
+            <label for="login-email">Email address</label>
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+
+          <!-- The login button is wrapped in an anchor tag to dashboard.html -->
+          <button type="button"  onclick="logInUser(event)" class="btn btn-primary btn-block"> Log in → </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>
+            Don't have an account?
+            <a href="./pages/signup.html" class="auth-link">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="copyright">© 2025 ChatFlow — real connections.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+<script src="../js/login.js"></script>
