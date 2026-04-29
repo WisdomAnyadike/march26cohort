@@ -28,6 +28,7 @@ if (!email || !password) {
   .then((userCredential) => {
     var user = userCredential.user;
     alert('sign in succesful')
+    
     window.location.href = 'dashboard.html'
    ev.target.innerHTML = 'Log in →'
     ev.target.disabled = false
@@ -35,13 +36,13 @@ if (!email || !password) {
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
-    if (errorMessage === 'Firebase: The supplied auth credential is incorrect, malformed or has expired. (auth/invalid-credential).') {
-         alert('user not found , please try signing up') 
-         location.href = 'login'
-    }else {
-        alert(errorMessage)
-    }
-  
+    // if (errorMessage === 'Firebase: The supplied auth credential is incorrect, malformed or has expired. (auth/invalid-credential).') {
+    //      alert('user not found , please try signing up') 
+    //      location.href = 'login.html'
+    // }else {
+     
+    // }
+     alert(errorMessage)
     ev.target.innerHTML = 'Log in →'
     ev.target.disabled = false
     

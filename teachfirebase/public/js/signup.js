@@ -13,6 +13,7 @@ console.log(firebase);
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
+  var provider = new firebase.auth.GoogleAuthProvider();
 
 
 
@@ -38,10 +39,27 @@ alert('fullname must not include a number')
    firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     var user = userCredential.user;
-    alert( 'sign up successful');
+
+ user.updateProfile({
+  displayName: fullname,
+ }).then(() => {
+     alert( 'sign up successful');
       ev.target.innerHTML = 'Sign Up →'
      ev.target.disabled = false
     window.location.href = 'login.html'
+ }).catch((error) => {
+   alert( 'sign up successful , couldnt update display name but you can change it in settings');
+      ev.target.innerHTML = 'Sign Up →'
+     ev.target.disabled = false
+    window.location.href = 'login.html'
+ });  
+
+
+ localStorage.setItem(`${user.email}`, JSON.stringify(false))
+
+
+
+
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -51,6 +69,29 @@ alert('fullname must not include a number')
      ev.target.disabled = false
   });
     }
+ }
+
+
+
+ function signWithGoogle(params) {
+  firebase.auth()
+  .signInWithPopup(provider)
+  .then((result) => {
+    /** @type {firebase.auth.OAuthCredential} */
+    var credential = result.credential;
+    var token = credential.accessToken;
+    var user = result.user;
+    alert('sign in successful')
+    window.location.href = 'dashboard.html'
+   
+  }).catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    var email = error.email;
+    var credential = error.credential;
+    alert(errorMessage)
+
+  });
  }
 
 

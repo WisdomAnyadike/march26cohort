@@ -1,7 +1,8 @@
 
- const firebaseConfig = {
+   const firebaseConfig = {
     apiKey: "AIzaSyAeuw5CKyaxQrvNHskWTFWeHZ7cDXqJZiE",
     authDomain: "chatapp-fec30.firebaseapp.com",
+    databaseURL: "https://chatapp-fec30-default-rtdb.firebaseio.com",
     projectId: "chatapp-fec30",
     storageBucket: "chatapp-fec30.firebasestorage.app",
     messagingSenderId: "484920290116",
@@ -11,6 +12,7 @@
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
+  const database = firebase.database();
 
 
 
@@ -29,22 +31,65 @@ if (canSignOut) {
 
 
 function checkAuth() {
+  document.querySelector('.group-chat-feed').innerHTML = 'loading...'
+document.querySelector('.group-chat-send').disabled = true
+
+
     auth.onAuthStateChanged((user) => {
   if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/v8/firebase.User
+
     var uid = user.uid;
     console.log(user);
-    
+      document.querySelector('.group-chat-feed').innerHTML = ''
+document.querySelector('.group-chat-send').disabled = false
     document.querySelector('.welcome-tag').innerHTML = `Hello , ${user.displayName || 'USER'} `
-      document.querySelector('.welcome-heading').innerHTML = `Welcome back, ${user.displayName || 'USER'} 👋`
-    // ...
+      document.querySelector('.welcome-heading').innerHTML = `${JSON.parse(localStorage.getItem(user.email)) ? 'Welcome back' : 'Welcome'}, ${user.displayName || 'USER'} 👋`
+    localStorage.setItem(`${user.email}`, JSON.stringify(true))
   } else {
     window.location.href = 'login.html'
-    // User is signed out
-    // ...
+   
   }
 });
 }
 
 checkAuth()
+
+
+function sendMessage(params) {
+ let message = document.querySelector('.group-chat-input').value.trim()
+
+ if (!message) {
+  alert('input cannot be empty')
+ }else {
+ database.ref('chats/' + 0).set({
+    sender:  auth.currentUser.displayName ,
+    time: new Date().toLocaleTimeString() ,
+    message  
+  }).then(()=> {
+alert('messge sent successfully')
+  }).catch((err)=> {
+alert(err.message)
+  })
+
+
+ }
+
+
+}
+
+
+function displayMessages(params) {
+ 
+
+
+
+
+database.ref('chats').on('value', (snapshot) => {
+  const data = snapshot.val();
+console.log(data);
+
+});
+  
+}
+
+displayMessages()

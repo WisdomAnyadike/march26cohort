@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+            <script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+    <input type="text" id="email"> <button onclick="sendMail()"> send password reset email</button>
+    
+</body>
+</html>
+<script>
+
+ const firebaseConfig = {
+    apiKey: "AIzaSyAeuw5CKyaxQrvNHskWTFWeHZ7cDXqJZiE",
+    authDomain: "chatapp-fec30.firebaseapp.com",
+    projectId: "chatapp-fec30",
+    storageBucket: "chatapp-fec30.firebasestorage.app",
+    messagingSenderId: "484920290116",
+    appId: "1:484920290116:web:f63038b4930cd517180511"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+function sendMail(params) {
+    let email = document.getElementById('email').value.trim()
+    firebase.auth().sendPasswordResetEmail(email)
+  .then(() => {
+ alert('reset mail successful sent, check spam folder if not present in inbox')
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage)
+    // ..
+  });
+}
+
+
+
+</script>
