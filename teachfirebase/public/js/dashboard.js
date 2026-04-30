@@ -13,6 +13,7 @@
   const app = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const database = firebase.database();
+  let chatIndex 
 
 
 
@@ -61,12 +62,13 @@ function sendMessage(params) {
  if (!message) {
   alert('input cannot be empty')
  }else {
- database.ref('chats/' + 0).set({
+ database.ref('chats/' + chatIndex).set({
     sender:  auth.currentUser.displayName ,
     time: new Date().toLocaleTimeString() ,
-    message  
+    message  ,
+    isDeleted : false 
   }).then(()=> {
-alert('messge sent successfully')
+    document.querySelector('.group-chat-input').value = ''
   }).catch((err)=> {
 alert(err.message)
   })
@@ -80,16 +82,63 @@ alert(err.message)
 
 function displayMessages(params) {
  
+firebase.database().ref('chats').on('value', (snapshot) => {
+  const data = snapshot.val() || []
+  chatIndex = data.length
+  console.log(data);
+   document.querySelector('.group-chat-feed').innerHTML = ''
+  data.forEach((chat , i , arr) => {
+    let itsMe = auth.currentUser.displayName === chat.sender
 
 
+    document.querySelector('.group-chat-feed').innerHTML += `<div ondblclick="deleteMssg(${i} , ${itsMe} , ${chat.isDeleted})" class="group-message ${itsMe ?'is-self' : ''}">
+              <div class="group-msg-avatar"> ${chat.sender[0].toUpperCase()}</div>
+              <div class="group-msg-body">
+                <p class="group-msg-meta"><span class="group-msg-name">${itsMe ? 'You' : chat.sender }</span> ${chat.time}</p>
+                <p class="group-msg-bubble">${chat.isDeleted ? 'This message has been deleted' : chat.message}</p>
+              </div>
+            </div>`
+    
+  });
 
 
-database.ref('chats').on('value', (snapshot) => {
-  const data = snapshot.val();
-console.log(data);
 
 });
   
+
+
+
+
 }
 
+
+
+
+
+
 displayMessages()
+
+
+
+function deleteMssg(index , itsMyMessage , MessageDeleted) {
+if (!itsMyMessage) {
+  alert('unauthorized')
+  return
+}
+
+if (MessageDeleted) {
+  alert('message already deleted')
+  return
+}
+
+
+
+  let canDelete = confirm("are you sure?")
+  if (canDelete) {
+     database.ref(`chats/${index}`).update( { isDeleted : true});
+    //  alert('message deleted successfully')
+  }
+
+
+  
+}
